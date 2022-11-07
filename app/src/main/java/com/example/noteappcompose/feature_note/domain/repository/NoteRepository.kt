@@ -1,5 +1,6 @@
 package com.example.noteappcompose.feature_note.domain.repository
 
+import com.example.noteappcompose.feature_note.data.models.NoteDbModel
 import com.example.noteappcompose.feature_note.domain.entity.Note
 import kotlinx.coroutines.flow.Flow
 

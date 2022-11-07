@@ -6,8 +6,8 @@ import com.example.noteappcompose.ui.theme.*
 
 @Entity(tableName = "note")
 data class NoteDbModel(
-    @PrimaryKey
-    var id:Int? = null,
+    @PrimaryKey(autoGenerate = true)
+    val id:Int,
     val title:String,
     val content:String,
     val timestamp:Long,
@@ -17,3 +17,5 @@ data class NoteDbModel(
         val noteColors = listOf(RedOrange,LightGreen,Violet,BabyBlue,RedPink)
     }
 }
+
+class InvalidNoteException(message:String):Exception(message)

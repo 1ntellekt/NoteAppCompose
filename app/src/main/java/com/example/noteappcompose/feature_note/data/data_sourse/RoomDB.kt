@@ -10,8 +10,10 @@ import com.example.noteappcompose.feature_note.data.models.NoteDbModel
 )
 abstract class RoomDB : RoomDatabase() {
 
-
-
     abstract val noteDao:NoteDao
+
+    companion object {
+        const val DATABASE_NAME = "notes_db"
+    }
 
 }
