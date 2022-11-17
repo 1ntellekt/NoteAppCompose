@@ -1,6 +1,7 @@
 package com.example.noteappcompose.feature_note.presentation.notes
 
 import android.annotation.SuppressLint
+import android.util.Log
 import androidx.compose.animation.*
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -19,6 +20,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.noteappcompose.feature_note.presentation.notes.components.NoteItem
 import com.example.noteappcompose.feature_note.presentation.notes.components.OrderSection
+import com.example.noteappcompose.feature_note.presentation.util.Screen
 import kotlinx.coroutines.launch
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
@@ -35,7 +37,7 @@ fun NotesScreen(
         floatingActionButton = {
             FloatingActionButton(
                 onClick = {
-
+                    navController.navigate(Screen.AddEditNoteScreen.route)
                 },
                 backgroundColor = MaterialTheme.colors.primary
             ) {
@@ -91,7 +93,10 @@ fun NotesScreen(
                         modifier = Modifier
                             .fillMaxWidth()
                             .clickable {
-
+                                 navController.navigate(
+                                     Screen.AddEditNoteScreen.route +
+                                             "?noteId=${note.id}&noteColor=${note.color}"
+                                 )
                             },
                         onDelete = {
                             viewModel.onEvent(NotesEvent.DeleteNote(note))

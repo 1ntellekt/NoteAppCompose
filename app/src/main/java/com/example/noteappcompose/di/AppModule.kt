@@ -7,10 +7,7 @@ import com.example.noteappcompose.feature_note.data.data_sourse.RoomDB
 import com.example.noteappcompose.feature_note.data.mapper.NoteMapper
 import com.example.noteappcompose.feature_note.data.repository.NoteRepositoryImpl
 import com.example.noteappcompose.feature_note.domain.repository.NoteRepository
-import com.example.noteappcompose.feature_note.domain.usecase.AddNoteUseCase
-import com.example.noteappcompose.feature_note.domain.usecase.DeleteNoteUseCase
-import com.example.noteappcompose.feature_note.domain.usecase.GetNotesUseCase
-import com.example.noteappcompose.feature_note.domain.usecase.NoteUseCases
+import com.example.noteappcompose.feature_note.domain.usecase.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -47,7 +44,8 @@ object AppModule {
         return NoteUseCases(
             getNotesUseCase = GetNotesUseCase(repository),
             deleteNoteUseCase = DeleteNoteUseCase(repository),
-            addNoteUseCase = AddNoteUseCase(repository)
+            addNoteUseCase = AddNoteUseCase(repository),
+            getNoteUseCase = GetNoteUseCase(repository)
         )
     }
 

@@ -12,10 +12,6 @@ data class NoteDbModel(
     val content:String,
     val timestamp:Long,
     val color:Int
-) {
-    companion object{
-        val noteColors = listOf(RedOrange,LightGreen,Violet,BabyBlue,RedPink)
-    }
-}
+)
 
 class InvalidNoteException(message:String):Exception(message)
